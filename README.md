@@ -1,3 +1,3 @@
-# Profiles REST API
+# Login System
 
-Profile REST API course code
+Created Login system with email authentication
