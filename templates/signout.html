@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="login100-form validate-form">
+	{% csrf_token %}
+	{% for message in messages %}
+		{% if message.tags == "success" %}
+			<div class="alert alert-{{message.tags}} alert-dismissible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong> {{message}}
+			</div>
+		{% else %}
+			<div class="alert alert-danger alert-dismissible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Error!</strong> {{message}}
+			</div>
+		{% endif %}
+	{% endfor %}
+
+	<div class="text-center p-t-115">
+		<span class="txt1">
+			Do you want to login again?
+		</span>
+
+		<a class="txt2" href="signin">
+			Sign In
+		</a>
+	</div>
+</form>
+
+{% endblock content %}

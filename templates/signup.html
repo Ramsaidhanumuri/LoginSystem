@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form class="login100-form validate-form" action="/signup" method="POST">
+	{% csrf_token %}
+	<span class="login100-form-title p-b-26">
+		Welcome Django Project
+	</span>
+	<span class="login100-form-title p-b-48">
+		<i class="zmdi zmdi-font"></i>
+	</span>
+
+	{% for message in messages %}
+		{% if message.tags == "success" %}
+			<div class="alert alert-{{message.tags}} alert-dismissible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Success!</strong> {{message}}
+			</div>
+		{% else %}
+			<div class="alert alert-danger alert-dismissible">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Error!</strong> {{message}}
+			</div>
+		{% endif %}
+	{% endfor %}
+	
+	<div class="wrap-input100 validate-input">
+		<input class="input100" type="text" name="Username" autocomplete="off">
+		<span class="focus-input100" data-placeholder="Username"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input">
+		<input class="input100" type="text" name="fname" autocomplete="off">
+		<span class="focus-input100" data-placeholder="Enter First Name"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input">
+		<input class="input100" type="text" name="lname" autocomplete="off">
+		<span class="focus-input100" data-placeholder="Enter Last Name"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input">
+		<input class="input100" type="text" name="Email" autocomplete="off">
+		<span class="focus-input100" data-placeholder="Enter Email"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input" data-validate="Enter Password">
+		<span class="btn-show-pass">
+			<i class="zmdi zmdi-eye"></i>
+		</span>
+		<input class="input100" type="Password" name="Password" autocomplete="off">
+		<span class="focus-input100" data-placeholder="Password"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input" data-validate="Confirm password">
+		<span class="btn-show-pass">
+			<i class="zmdi zmdi-eye"></i>
+		</span>
+		<input class="input100" type="CPassword" name="CPassword" autocomplete="off">
+		<span class="focus-input100" data-placeholder="Confirm password"></span>
+	</div>
+
+	<div class="container-login100-form-btn">
+		<div class="wrap-login100-form-btn">
+			<div class="login100-form-bgbtn"></div>
+			<button class="login100-form-btn" type="submit">
+				Create Account
+			</button>
+		</div>
+	</div>
+
+	<div class="text-center p-t-115">
+		<span class="txt1">
+			Do you have an account?
+		</span>
+
+		<a class="txt2" href="signin">
+			Sign In
+		</a>
+	</div>
+</form>
+
+{% endblock content %}
